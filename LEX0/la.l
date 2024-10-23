@@ -25,6 +25,7 @@ struct |
 typedef
 return {printf("\n\t%s is KEYWORD",yytext);}
 "/*" {COMMENT = 1;}{printf("\n\t%s is a COMMENT",yytext);}
+"*/" {COMMENT=0;}{printf("COMMENT ends",yytext);}
 {identifier} {printf("\n\t%s is an IDENTIFIER.",yytext);}
 {identifier}\( {if(!COMMENT);} {printf("\n\t%s is a FUNCTION",yytext);}
 \{ {printf("BLOCK BEGINS");}
